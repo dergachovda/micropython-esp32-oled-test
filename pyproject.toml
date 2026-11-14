@@ -9,5 +9,24 @@ dependencies = []
 [dependency-groups]
 dev = [
     "esptool>=5.6.0",
+    "micropython-esp32-stubs>=1.29.0.post1",
     "mpremote>=1.29.0",
+    "pyright>=1.1.414",
+    "pytest>=9.2.0",
+    "ruff>=0.17.5",
 ]
+
+[tool.ruff]
+line-length = 100
+target-version = "py314"
+extend-exclude = ["device/lib/sh1106.py"]
+
+[tool.pyright]
+include = ["device", "tests"]
+exclude = ["device/lib/sh1106.py"]
+extraPaths = ["device", "device/lib"]
+typeCheckingMode = "strict"
+pythonVersion = "3.14"
+
+[tool.pytest.ini_options]
+pythonpath = ["device", "device/lib"]
