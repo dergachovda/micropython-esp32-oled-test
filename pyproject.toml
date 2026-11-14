@@ -1,0 +1,13 @@
+[project]
+name = "esp-oled"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "esptool>=5.6.0",
+    "mpremote>=1.29.0",
+]
