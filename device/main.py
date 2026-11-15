@@ -33,13 +33,21 @@ def text(s, x, y):
 
 
 def draw(temp=None):
+    # clear screen
     oled.fill(0)
-    text("> Hi !!!", 4, 4)
+
+    # 1 line
+    text("Hello!", 4, 4)
+
+    # 2 line
     text("LED:" + ("ON" if led_on else "OFF"), 4, 16)
+
+    # 3 line
     if temp is not None:
         text("T:{:.1f}C".format(temp), 4, 28)
-    oled.show()
 
+    # show
+    oled.show()
 
 set_led(led_on)
 draw()
