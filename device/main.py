@@ -1,4 +1,4 @@
-from machine import Pin, SoftI2C
+from machine import I2C, Pin
 import esp32
 import sh1106
 import time
@@ -9,11 +9,12 @@ SCL_PIN = 6
 LED_PIN = 8    # вбудований синій LED (на SuperMini горить при LOW)
 BTN_PIN = 9    # кнопка BOOT (натиснута = LOW)
 
-# Видима область екрана 72x40 у буфері 128x64
-OX, OY = 13, 14
+# Видима область 72x40 у буфері 128x64 (параметри саме цієї плати)
+OX, OY = 28, 11
+W, H = 72, 40
 
-i2c = SoftI2C(scl=Pin(SCL_PIN), sda=Pin(SDA_PIN), freq=400000)
-oled = sh1106.SH1106_I2C(128, 64, i2c)
+i2c = I2C(0, scl=Pin(SCL_PIN), sda=Pin(SDA_PIN), freq=400000)
+oled = sh1106.SH1106_I2C(128, 64, i2c, addr=0x3C)
 
 led = Pin(LED_PIN, Pin.OUT)
 btn = Pin(BTN_PIN, Pin.IN, Pin.PULL_UP)
@@ -27,12 +28,16 @@ def set_led(state):
     led.value(0 if state else 1)
 
 
+def text(s, x, y):
+    oled.text(s, OX + x, OY + y, 1)
+
+
 def draw(temp=None):
     oled.fill(0)
-    oled.text("Hi!", OX + 2, OY + 4)
-    oled.text("LED:" + ("ON" if led_on else "OFF"), OX + 2, OY + 16)
+    text("> Hi !!!", 4, 4)
+    text("LED:" + ("ON" if led_on else "OFF"), 4, 16)
     if temp is not None:
-        oled.text("T:{:.1f}C".format(temp), OX + 2, OY + 28)
+        text("T:{:.1f}C".format(temp), 4, 28)
     oled.show()
 
 
