@@ -1,0 +1,27 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="run" type="PythonConfigurationType" factoryName="Python">
+    <module name="esp-oled" />
+    <option name="ENV_FILES" value="" />
+    <option name="INTERPRETER_OPTIONS" value="" />
+    <option name="PARENT_ENVS" value="true" />
+    <envs>
+      <env name="PYTHONUNBUFFERED" value="1" />
+    </envs>
+    <option name="SDK_HOME" value="" />
+    <option name="SDK_NAME" value="D:\Projects\MyProjects\arduino\esp32-micropython\esp-oled\.venv" />
+    <option name="WORKING_DIRECTORY" value="D:\Projects\MyProjects\arduino\esp32-micropython\esp-oled" />
+    <option name="IS_MODULE_SDK" value="false" />
+    <option name="ADD_CONTENT_ROOTS" value="true" />
+    <option name="ADD_SOURCE_ROOTS" value="true" />
+    <option name="RUN_TOOL" value="true" />
+    <option name="RUN_AS_SCRIPT" value="false" />
+    <option name="SCRIPT_NAME" value="mpremote" />
+    <option name="PARAMETERS" value="connect auto run device/main.py" />
+    <option name="SHOW_COMMAND_LINE" value="false" />
+    <option name="EMULATE_TERMINAL" value="false" />
+    <option name="MODULE_MODE" value="true" />
+    <option name="REDIRECT_INPUT" value="false" />
+    <option name="INPUT_FILE" value="" />
+    <method v="2" />
+  </configuration>
+</component>
